@@ -117,8 +117,12 @@ function load_js($arquivo = NULL,$pasta='assets',$subpasta='js',$remoto=FALSE){
 function erros_validacao(){
 	 if (validation_errors())
 	 {
-          echo '<div class="alert alert-danger alert-dismissible fade in" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><strong>x</strong></span>
-        </button><p><strong>'.validation_errors('<p><strong>','</strong></p>').'</div>';
+
+          echo 'alert alert-alert alert-danger alert-with-icon animated fadeInDown" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <i data-notify="icon" class="material-icons">notifications</i><span data-notify="title"></span>
+        <span data-notify="message">'.validation_errors('<p><strong>','</strong></p>').'</span><a href="#" target="_blank" data-notify="url"></a>
+    </div>';
      }
 }
 //verifica se usuario está logado
@@ -144,16 +148,25 @@ function set_msg($id='msgerro',$msg=	NULL,$tipo='erro'){
 		$CI=& get_instance();
 		switch ($tipo) {
 			case 'erro':
-				$CI->session->set_flashdata($id,'<div class="alert alert-danger alert-dismissible fade in role="alert""><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><strong>x</strong></span>
-        </button><p><strong>'.$msg.'</strong></p></div>');
+				$CI->session->set_flashdata($id,'alert alert-alert alert-danger alert-with-icon animated fadeInDown" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <i data-notify="icon" class="material-icons">notifications</i><span data-notify="title"></span>
+        <span data-notify="message">'.$msg.'</span><a href="#" target="_blank" data-notify="url"></a>
+    </div>');
 				break;
 			case 'sucesso':
-				$CI->session->set_flashdata($id,'<div class="alert alert-success alert-dismissible fade in role="alert""><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><strong>x</strong></span>
-        </button><p>'.$msg.'</div>');
+				$CI->session->set_flashdata($id,'<div class="alert alert-alert alert-success alert-with-icon animated fadeInDown" role="alert">
+			        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <i data-notify="icon" class="material-icons">notifications</i><span data-notify="title"></span>
+			        <span data-notify="message">'.$msg.'</span><a href="#" target="_blank" data-notify="url"></a>
+			    </div>');
 				break;			
 			default:
-				$CI->session->set_flashdata($id,'<div class="alert alert-info alert-dismissible fade in" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><strong>x</strong></span>
-        </button><p>'.$msg.'</div>');
+				$CI->session->set_flashdata($id,'<div class="alert alert-alert alert-info alert-with-icon animated fadeInDown" role="alert">
+			        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <i data-notify="icon" class="material-icons">notifications</i><span data-notify="title"></span>
+			        <span data-notify="message">'.$msg.'</span><a href="#" target="_blank" data-notify="url"></a>
+			    </div>');
 				break;
 		}
 }
