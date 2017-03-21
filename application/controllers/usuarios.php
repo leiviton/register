@@ -148,10 +148,11 @@ class Usuarios extends CI_Controller {
 		if ($this->usuarios->verifica_chave($chave)) {
 			$dados['chave'] = $chave;
 			if ($this->usuarios->get_byemail_chave($chave)) {
+				set_msg('msgok','Cadastro realizado com sucesso.','sucesso');
 				$this->load->view('usuarios/confirmacao',$dados);
 			}					
 		}else{
-			set_msg('errolink','Erro, seu token expirou solicite um novo.');
+			set_msg('errolink','Seu token expirou, solicite um novo.');
 			redirect('usuarios/login');				
 		}
 	}
@@ -160,14 +161,22 @@ class Usuarios extends CI_Controller {
 	{
 		if ($this->usuarios->verifica_chave($chave)) {
 			$dados['chave'] = $chave;
+			set_msg('msgok','Cadastro realizado com sucesso.','sucesso');
 			$this->load->view('usuarios/confirmacao',$dados);		
 		}else{
-			set_msg('errolink','Erro, seu token expirou solicite um novo.');
+			set_msg('errolink','Seu token expirou, solicite um novo.');
 			redirect('usuarios/login');
 				
 		}
 	}
 
+	public function confirmacao()
+	{
+		set_tema('titulo','Cadastro confirmado');
+		set_tema('conteudo', load_modulo('usuarios','confirmacao'));
+		set_tema('rodape','');
+		load_template();
+	}
 
 
 	public function gravar_senha()

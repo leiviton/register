@@ -74,6 +74,39 @@ switch ($tela) {
     </div>
     <?php 
 		break;
+    case 'confirmacao':
+    ?>
+       <div class="full-page" data-image='../../assets/img/login.jpeg'>
+    <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+    <div class="content" style="margin-top: 80px">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">       
+          <?php
+            erros_validacao();
+            get_msg('msgerro');
+            get_msg('msgok');         
+           
+            ?>
+            <div class="card card-login">
+                <div class="card-header text-center" data-background-color="blue">
+                  <h4 class="card-title">Confirmação</h4>
+                </div>
+                <div class="card-content">    
+                  <div class="form-group">
+                    <div class="col-md-6 col-md-offset-4">                                       
+                      <a class="btn btn-success btn-lg" href="https://direta.net.br/app/public">Ir para o login</a>
+                    </div>
+                  </div>
+                </div>
+              </div>         
+            
+              
+            </div>
+          </div>  
+        </div>
+        <?php
+      break;
     case 'nova_senha':
     ?>
     <div class="full-page" data-image='../../assets/img/login.jpeg'>
