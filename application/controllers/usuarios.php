@@ -149,11 +149,11 @@ class Usuarios extends CI_Controller {
 			$dados['chave'] = $chave;
 			if ($this->usuarios->get_byemail_chave($chave)) {
 				set_msg('msgok','Cadastro realizado com sucesso.','sucesso');
-				$this->load->view('usuarios/confirmacao',$dados);
+				redirect('usuarios/confirmacao');
 			}					
 		}else{
 			set_msg('errolink','Seu token expirou, solicite um novo.');
-			redirect('usuarios/login');				
+			edirect('usuarios/VerifyCadastro');			
 		}
 	}
 
@@ -162,10 +162,10 @@ class Usuarios extends CI_Controller {
 		if ($this->usuarios->verifica_chave($chave)) {
 			$dados['chave'] = $chave;
 			set_msg('msgok','Cadastro realizado com sucesso.','sucesso');
-			$this->load->view('usuarios/confirmacao',$dados);		
+			redirect('usuarios/confirmacao');		
 		}else{
 			set_msg('errolink','Seu token expirou, solicite um novo.');
-			redirect('usuarios/login');
+			redirect('usuarios/VerifyCadastro');
 				
 		}
 	}
