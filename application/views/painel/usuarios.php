@@ -59,11 +59,11 @@ switch ($tela) {
                   <span class="input-group-addon">
                       <i class="material-icons">face</i>
                   </span>
-                  <div class="form-group label-floating is-empty">                    
+                  <div class="form-group label-floating is-empty col-md-8">                    
                     <label class="control-label">Seu CPF</label>
-                    <div class="col-md-8">
+                   
                       <input type="text" class="form-control" name="cpf" required="true">
-                    </div>
+                 
                   </div>
                   </div>
                   <div class="form-group">
@@ -106,11 +106,11 @@ switch ($tela) {
                       <span class="input-group-addon">
                           <i class="material-icons">face</i>
                       </span>
-                      <div class="form-group label-floating is-empty">
+                      <div class="form-group label-floating is-empty col-md-8">
                         <label class="control-label">Seu CPF</label>
-                        <div class="col-md-8">
+                       
                           <input type="text" class="form-control" name="cpf" placeholder="Digite seu CPF" required="true">
-                        </div>
+                       
                       </div>
                     </div>
                     <div class="clearfix"></div>
@@ -118,11 +118,11 @@ switch ($tela) {
                       <span class="input-group-addon">
                         <i class="material-icons">email</i>
                       </span>
-                      <div class="form-group label-floating is-empty">
+                      <div class="form-group label-floating is-empty col-md-8">
                         <label class="control-label">Seu Email</label>
-                        <div class="col-md-8">
+                       
                           <input type="text" class="form-control" name="email" placeholder="Digite seu email" required="true">
-                        </div>
+                 
                       </div>
                     </div>
                     <div class="clearfix"></div>
@@ -161,17 +161,17 @@ switch ($tela) {
                     <h4 class="card-title">Cadastrar nova senha</h4>
                   </div>
                   <div class="card-content">
-                    <div class="col-md-"></div>
+                    <div class="col-md-3"></div>
                     <div class="input-group">
                       <span class="input-group-addon">
                           <i class="material-icons">face</i>
                       </span>
-                      <div class="form-group label-floating is-empty">                    
+                      <div class="form-group col-md-8 label-floating is-empty">                    
                         <label class="control-label">Seu CPF</label>
-                        <div class="col-md-8">
+                        
                           <input type="text" class="form-control" name="cpf" required="true">
                           <span class="material-input"></span>
-                        </div>
+                       
                       </div>
                     </div>
                     <div class="clearfix"></div>
@@ -179,12 +179,12 @@ switch ($tela) {
                         <span class="input-group-addon">
                             <i class="material-icons">lock_outline</i>
                         </span>
-                    <div class="form-group label-floating is-empty">
+                    <div class="form-group col-md-8 label-floating is-empty">
                       <label class="control-label">Digite sua nova senha</label>
-                        <div class="col-md-8">
+                        
                         <input type="password" class="form-control" name="senha" required="true">
                         <span class="material-input"></span>
-                      </div>
+                   
                     </div>
                   </div>
                   <div class="clearfix"></div>
@@ -192,12 +192,12 @@ switch ($tela) {
                         <span class="input-group-addon">
                             <i class="material-icons">lock_outline</i>
                         </span>
-                    <div class="form-group label-floating is-empty">
+                    <div class="form-group label-floating is-empty col-md-8">
                       <label class="control-label">Repita a senha</label>
-                      <div class="col-md-8">
+                     
                         <input type="password" class="form-control" name="senha2" required="true">
                         <span class="material-input"></span>
-                      </div>
+                  
                     </div>
                   </div>
                     <div class="clearfix"></div>
