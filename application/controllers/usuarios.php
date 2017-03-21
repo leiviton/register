@@ -10,7 +10,7 @@ class Usuarios extends CI_Controller {
 	}
 	public function index()
 	{
-		$this->gerenciar_ativo();
+		$this->VerifyCadastro();
 	}
 	public function login()
 	{
@@ -81,10 +81,10 @@ class Usuarios extends CI_Controller {
 				$cliente = $usuario[0];
 				if($cliente->EMAIL != null){
 					$chave = md5(uniqid(rand(), true));	
-					if ($this->usuarios->grava_chave($chave,$cliente->EMAIL)) {				
+					if ($this->usuarios->grava_chave($chave,$cliente->EMAIL)) {			
 		
 						$link = '<a href="'.base_url("usuarios/verificacao/$chave").'">'.base_url("usuarios/verificacao/$chave").'</a>';
-						$mensagem = '<p> Bem vindo ao sistema de Direta Telecom, clique no link abaixo para confirmar seu cadastro: <br /><br />'.$link.'<br /><br /><br /><hr>Caso você não solicitou, desconsidere este email.</p>';
+						$mensagem = '<p> Bem vindo ao sistema de Direta Telecom, sua senha para o primeiro acesso é "123456", após acesso trocar sua senha para sua segurança,clique no link abaixo para confirmar seu cadastro: <br /><br />'.$link.'<br /><br /><br /><hr>Caso você não solicitou, desconsidere este email.</p>';
 						if($this->sistema->enviar_email($cliente->EMAIL,'Bem Vindo ao sistema Direta Telecom',$mensagem)){
 
 							set_msg('msgok','Siga as instruções enviadas no email '.$cliente->EMAIL.'!!','sucesso');
@@ -152,7 +152,7 @@ class Usuarios extends CI_Controller {
 			$dados['chave'] = $chave;
 			if ($this->usuarios->get_byemail_chave($chave)) {
 				set_msg('msgok','Cadastro realizado com sucesso.','sucesso');
-				redirect('usuarios/alterar_senha');
+				redirect('usuarios/confirmacao');
 			}					
 		}else{
 			set_msg('errolink','Seu token expirou, solicite um novo.');
@@ -165,7 +165,7 @@ class Usuarios extends CI_Controller {
 		if ($this->usuarios->verifica_chave($chave)) {
 			$dados['chave'] = $chave;
 			set_msg('msgok','Cadastro realizado com sucesso.','sucesso');
-			redirect('usuarios/alterada_senha');		
+			redirect('usuarios/confirmacao');		
 		}else{
 			set_msg('errolink','Seu token expirou, solicite um novo.');
 			redirect('usuarios/VerifyCadastro');
@@ -240,7 +240,8 @@ class Usuarios extends CI_Controller {
 		$this->form_validation->set_rules('cpf','CPF','trim|required');
 		if ($this->form_validation->run()==TRUE) {
 			$cpf = $this->input->post('cpf');
-			$dados['senha'] = bcrypt($this->input->post('senha'));
+			$dados['password'] = bcrypt($this->input->post('senha'));
+
 			if ($this->usuarios->get_bycpf($cpf)!=FALSE) {
 				$user_id = $this->usuarios->get_bycpf($cpf)->row()->user_id;
 				if($this->usuarios->do_update($dados,array('id'=>$this->$user_id))==TRUE){
@@ -253,7 +254,7 @@ class Usuarios extends CI_Controller {
 			}else{
 				set_msg('msgerro','O cpf'.$cpf.' não está cadastrado.','erro');
 				redirect(current_url());
-			}			
+			}	
 		}
 		set_tema('titulo','Cadastrar senha');
 		set_tema('conteudo', load_modulo('usuarios','alterar_senha'));
