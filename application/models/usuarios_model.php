@@ -135,9 +135,9 @@ class Usuarios_model extends CI_Model
 			return FALSE;
 		}		
 	}
-	public function grava_chave($chave='',$email='',$cpf='')
+	public function grava_chave($chave='',$email='')
 	{
-		if ($this->db->insert('token_validator', array('chave'=>$chave,'email'=>$email,'cpf'=>$cpf)) {
+		if ($this->db->insert('token_validator', array('chave'=>$chave,'email'=>$email))) {
 			return TRUE;	
 		}
 		else{
