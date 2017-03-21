@@ -69,7 +69,7 @@ switch ($tela) {
                   <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
                       <input type="submit" class="btn btn-info" name="enviar" value="Solicitar">                    
-                      <a class="btn btn-danger btn-simple" href="htts://direta.net.br/app/public">voltar ao login</a>
+                      <a class="btn btn-danger btn-simple" href="htts://direta.net.br/app/public/">voltar ao login</a>
                     </div>
                   </div>
                 </div>
