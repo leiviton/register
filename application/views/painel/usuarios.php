@@ -66,9 +66,8 @@ switch ($tela) {
                     </div>
                   </div>
                   </div>
-                  <div class="col-md-2"></div>
                   <div class="form-group">
-                    <div class="col-md-4 col-md-offset-4">
+                    <div class="col-md-6 col-md-offset-4">
                       <input type="submit" class="btn btn-info" name="enviar" value="Solicitar">                    
                       <a class="btn btn-danger btn-simple" href="#">voltar ao login</a>
                     </div>
