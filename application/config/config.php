@@ -24,7 +24,7 @@
 */
 //$config['base_url'] = 'http://jotasat.com.br/sistema/';
 
-$config['base_url'] = 'http://localhost/sistema/';
+$config['base_url'] = 'https://direta.net/register/';
 
 /*
 |--------------------------------------------------------------------------

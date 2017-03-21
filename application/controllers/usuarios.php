@@ -119,7 +119,7 @@ class Usuarios extends CI_Controller {
 				$chave = md5(uniqid(rand(), true));	
 				if ($this->usuarios->grava_chave($chave,$email,$cpf)) {			
 		
-						$link = '<a href="'.base_url("usuarios/verifica_email/$chave").'">'.base_url("usuarios/verificacao/$chave").'</a>';
+						$link = '<a href="'.base_url("usuarios/verifica_email/$chave").'">'.base_url("usuarios/confirmacao/$chave").'</a>';
 						$mensagem = '<p> Bem vindo ao sistema Direta Telecom, clique no link abaixo para confirmar seu cadastro: <br /><br />'.$link.'<br /><br /><br /><hr>Caso você não solicitou, desconsidere este email.</p>';
 						if($this->sistema->enviar_email($email,'Confirmação de email',$mensagem)){
 							set_msg('msgok','Siga as instruções enviadas no email '.$email.'!!','sucesso');
