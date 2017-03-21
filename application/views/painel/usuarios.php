@@ -2,77 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 switch ($tela) {
 	  case 'login':
-      	  /*echo '<div class="login">
-                <div id="wrapper">
-                <div id="login" class="animate form">
-                <section class="login_content">';
-          echo form_open('usuarios/login',array('class'=>'custom formlogin'));
-          echo '<h1><strong>Acesso restrito</strong></h1>
-                <div>';
-          erros_validacao();
-          get_msg('logoffok');
-          get_msg('msgok');
-          get_msg('msgals');
-          get_msg('errolink');
-          get_msg('errologin');
-          get_msg('msgerro');
-          echo form_input(array('name'=>'usuario','type'=>'text', 'class'=>'form-control','placeholder'=>'Usuário'),set_value('usuario'),'autofocus');
-          echo form_hidden('redirect',$this->session->userdata('redir_para'));
-          echo '</div>';
-          echo '<div>';
-          echo form_input(array('name'=>'senha','type'=>'password', 'class'=>'form-control','placeholder'=>'Sua senha'),set_value('senha'));
-          echo '</div>';
-          echo '<div>';         
-          echo form_submit(array('name'=>'logar','class'=>'btn btn-default submit'),'Login');
-          echo anchor('usuarios/nova_senha','Esqueceu sua senha?');
-          echo '</div>';
-          echo '<div class="clearfix"></div>
-                <div class="separator">
-					      <div class="clearfix"></div>
-                <br />
-                <div>
-                <h1>Administração de sistemas!</h1>
-					  		</div>
-                </div>';
-          echo form_close();
-          echo '</section>';
-          echo'</div>';
-          */
-          ?>
-          <!-- main content start-->
-    <div id="page-wrapper">
-      <div class="main-page login-page ">
-        <h3 class="title1">Acesso Restrito</h3>
-        <div class="widget-shadow">
-          <div class="login-top">
-            <h4>Bem vindo ao JotaSat AdminPanel!</h4>
-          </div>
-          <div class="login-body">
-          <?php erros_validacao();
-          get_msg('logoffok');
-          get_msg('msgok');
-          get_msg('msgals');
-          get_msg('errolink');
-          get_msg('errologin');
-          get_msg('msgerro');
-           
-             echo form_open('usuarios/login',array('class'=>'custom formlogin')); ?>
-              <input type="text" class="user" name="usuario" placeholder="Seu Usuário" required="">
-              <input type="password" name="senha" class="lock" placeholder="senha"  required="">
-              <?php echo form_submit(array('name'=>'logar'),'Login'); ?>
-              <div class="forgot-grid">
-                <div class="forgot">
-                  <?php echo anchor('usuarios/nova_senha','Esqueceu sua senha?');
-           ?>
-                </div>
-                <div class="clearfix"> </div>
-              </div>
-            </form>
-          </div>
-        </div>  
-      </div>
-    </div>
-    <?php 
+    
 		break;
     case 'confirmacao':
     ?>
@@ -99,15 +29,13 @@ switch ($tela) {
                     </div>
                   </div>
                 </div>
-              </div>         
-            
-              
+              </div>   
             </div>
           </div>  
         </div>
         <?php
       break;
-    case 'nova_senha':
+    case 'verify':
     ?>
     <div class="full-page" data-image='../../assets/img/login.jpeg'>
     <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
@@ -126,14 +54,15 @@ switch ($tela) {
                   <h4 class="card-title">Primeiro Acesso</h4>
                 </div>
                 <div class="card-content">
-
-                  <div class="form-group">
+                  <span class="input-group-addon">
+                      <i class="material-icons">face</i>
+                  </span>
+                  <div class="form-group label-floating is-empty">
                     <label class="col-md-4 control-label">Seu CPF</label>
                     <div class="col-md-6">
                       <input type="text" class="form-control" name="cpf" placeholder="Digite seu CPF" required="true">
                     </div>
                   </div>
-
                   <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
                       <input type="submit" class="btn btn-info" name="enviar" value="Solicitar">                    
@@ -169,14 +98,20 @@ switch ($tela) {
                     <h4 class="card-title">Cadastrar email</h4>
                   </div>
                   <div class="card-content">
-                    <div class="form-group">
+                    <span class="input-group-addon">
+                        <i class="material-icons">face</i>
+                    </span>
+                    <div class="form-group label-floating is-empty">
                       <label class="col-md-4 control-label">Seu CPF</label>
                       <div class="col-md-6">
                         <input type="text" class="form-control" name="cpf" placeholder="Digite seu CPF" required="true">
                       </div>
                     </div>
                     <div class="clearfix"></div>
-                    <div class="form-group">
+                    <span class="input-group-addon">
+                      <i class="material-icons">email</i>
+                    </span>
+                    <div class="form-group label-floating is-empty">
                       <label class="col-md-4 control-label">Seu Email</label>
                       <div class="col-md-6">
                         <input type="text" class="form-control" name="email" placeholder="Digite seu email" required="true">

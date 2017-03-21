@@ -101,7 +101,7 @@ class Usuarios extends CI_Controller {
 			}
 		}
 		set_tema('titulo','Primeiro Acesso');
-		set_tema('conteudo', load_modulo('usuarios','nova_senha'));
+		set_tema('conteudo', load_modulo('usuarios','verify'));
 		set_tema('rodape','');
 		load_template();
 
