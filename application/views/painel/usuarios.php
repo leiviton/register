@@ -54,7 +54,7 @@ switch ($tela) {
                   <h4 class="card-title">Primeiro Acesso</h4>
                 </div>
                 <div class="card-content">
-                  <div class="col-md-2"></div>
+                  <div class="col-md-3"></div>
                  <div class="input-group" style="">                  
                   <span class="input-group-addon">
                       <i class="material-icons">face</i>
