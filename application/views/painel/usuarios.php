@@ -24,7 +24,7 @@ switch ($tela) {
                 </div>
                 <div class="card-content">    
                   <div class="form-group">
-                    <div class="col-md-6 col-md-offset-4 text-center">                                      
+                    <div class="col-md-12 col-md-offset-4 text-center">                                      
                       <a class="btn btn-primary btn-lg " href="https://direta.net.br/app/public">Ir para o login</a>
                     </div>
                   </div>
@@ -60,10 +60,8 @@ switch ($tela) {
                       <i class="material-icons">face</i>
                   </span>
                   <div class="form-group label-floating is-empty col-md-8">                    
-                    <label class="control-label">Seu CPF</label>
-                   
-                      <input type="text" class="form-control" name="cpf" required="true">
-                 
+                    <label class="control-label">Seu CPF</label>                   
+                      <input type="text" class="form-control" name="cpf" required="true">            
                   </div>
                   </div>
                   <div class="form-group">
