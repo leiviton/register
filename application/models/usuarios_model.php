@@ -21,14 +21,12 @@ class Usuarios_model extends CI_Model
 	{
 		if ($dados != NULL && is_array($condicao)) {
 			$this->db->update('users', $dados, $condicao);
-			if ($this->db->affected_rows()>0) {
-				auditoria('Atualização de usuario','Atualização de'.$dados.'!');
-				set_msg('msgok','Alteração realizada com sucesso!','sucesso');
+			if ($this->db->affected_rows()>0) {				
+				return TRUE;
 			
 			} else {
-				set_msg('msgerro','Erro ao atualizar!','erro');
+				return FALSE;
 			}
-			if($redir) redirect(current_url());
 		}
 	}
 	public function do_delete($condicao=NULL,$redir=TRUE)
@@ -160,11 +158,16 @@ class Usuarios_model extends CI_Model
 	{
 		$email = $this->db->get_where('token_validator',array('chave'=>$chave))->row()->email;
 		$cpf = $this->db->get_where('token_validator',array('chave'=>$chave))->row()->cpf;
-
-		$query = $this->db->where('cpf',$cpf)->update('users',['EMAIL'=>$email]);
+		$user_id = $this->db->get_where('users',array('CPF'=>$cpf))->row()->id;
+		$query = $this->db->where('CPF',$cpf)->update('users',array('email'=>$email));
+		$query1 = $this->db->where('cpf',$cpf)->update('clientes',array('EMAIL'=>$email,'user_id'=>$user_id));
 
 		if ($query) {
+			if ($query1) {
 				return TRUE;
+			}else{
+				return FALSE;
+			}
 		} else {
 				return FALSE;
 		}

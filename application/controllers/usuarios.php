@@ -117,22 +117,25 @@ class Usuarios extends CI_Controller {
 			$email = $this->input->post('email');
 
 			if($this->usuarios->get_bycpf($cpf)!=FALSE){
-				$cliente = $this->usuarios->get_bycpf($cpf);
+				$cliente = $this->usuarios->get_bycpf($cpf)->result();
+				if($cliente[0]->EMAIL != $email && $cliente[0]->EMAIL == NULL){
+						$chave = md5(uniqid(rand(), true));	
+						if ($this->usuarios->grava_chave($chave,$email,$cpf)) {			
 				
-				$chave = md5(uniqid(rand(), true));	
-				if ($this->usuarios->grava_chave($chave,$email,$cpf)) {			
-		
-						$link = '<a href="'.base_url("usuarios/verifica_email/$chave").'">'.base_url("usuarios/confirmacao/$chave").'</a>';
-						$mensagem = '<p> Bem vindo ao sistema Direta Telecom, clique no link abaixo para confirmar seu cadastro: <br /><br />'.$link.'<br /><br /><br /><hr>Caso você não solicitou, desconsidere este email.</p>';
-						if($this->sistema->enviar_email($email,'Confirmação de email',$mensagem)){
-							set_msg('msgok','Siga as instruções enviadas no email '.$email.'!!','sucesso');
-							redirect(current_url());
-						}else {
-							set_msg('msgerro','O email:'.$email.' não está cadastrado.','erro');
-							redirect(current_url());
-						} 
-					}
+								$link = '<a href="'.base_url("usuarios/verifica_email/$chave").'">'.base_url("usuarios/confirmacao/$chave").'</a>';
+								$mensagem = '<p> Bem vindo ao sistema Direta Telecom, clique no link abaixo para confirmar seu cadastro: <br /><br />'.$link.'<br /><br /><br /><hr>Caso você não solicitou, desconsidere este email.</p>';
+								if($this->sistema->enviar_email($email,'Confirmação de email',$mensagem)){
+									set_msg('msgok','Siga as instruções enviadas no email '.$email.'!!','sucesso');
+									redirect(current_url());
+								}else {
+									set_msg('msgerro','O email:'.$email.' não está cadastrado.','erro');
+									redirect(current_url());
+								} 
+							}
 
+				}else{
+					 et_msg('msgerro','O você já possue email cadastrado. Entre em contato no (35)35598800 para cadastrar um novo email.','erro');
+				}		
 			}else{
 				set_msg('msgerro','O '.$cpf.' não está cadastrado.','erro');
 			}
@@ -201,12 +204,10 @@ class Usuarios extends CI_Controller {
 		if ($this->form_validation->run() == true) {
 			$email = $this->input->post('email');
 
-				if ($this->usuarios->recuperar_senha()) {
-					
+				if ($this->usuarios->recuperar_senha()) {					
 					$chave = md5(uniqid(rand(), true));					
 
-					if ($this->usuarios->grava_chave($chave,$email)) {
-						
+					if ($this->usuarios->grava_chave($chave,$email)) {				
 		
 						$link = '<a href="'.base_url("usuarios/verificacao/$chave").'">'.base_url("usuarios/verificacao/$chave").'</a>';
 						$mensagem = '<p> Bem vindo ao sistema de Direta Telecom, clique no link abaixo: <br /><br />'.$link.'<br /><br /><br /><hr>Caso você não solicitou, desconsidere este email.</p>';
@@ -229,51 +230,32 @@ class Usuarios extends CI_Controller {
 		load_template();
 	}
 	
-	public function cadastrar()
-	{
-		esta_logado();
-		$this->form_validation->set_message('is_unique','Este %s já está cadastrado no sistema.');
-		$this->form_validation->set_message('matches','O campo %s está diferente do campo %s.');
-		$this->form_validation->set_rules('nome','NOME','trim|required|ucwords');
-		$this->form_validation->set_rules('email','EMAIL','trim|required|valid_email|is_unique[usuarios.email]|strtolower');
-		$this->form_validation->set_rules('login','USUARIO','trim|required|min_length[4]|is_unique[usuarios.login]|strtolower');
-		$this->form_validation->set_rules('senha','SENHA','trim|required|min_length[4]|strtolower');
-		$this->form_validation->set_rules('senha2','REPITA A SENHA','trim|required|min_length[4]|strtolower|matches[senha]');
-		if ($this->form_validation->run()==TRUE) {
-			$dados = elements(array('nome','email','login'),$this->input->post());
-			$dados['senha'] = md5($this->input->post('senha'));
-			if (is_admin()) $dados['adm'] = ($this->input->post('adm')==1) ? 1 : 0;
-			$this->usuarios->do_insert($dados);			
-		}	
-		set_tema('titulo','Nova Senha');
-		set_tema('conteudo', load_modulo('usuarios','cadastrar'));
-		load_template();
-	}
-	public function gerenciar_ativo()	
-	{
-		esta_logado();
-		set_tema('titulo','Usuarios do sistema');
-		set_tema('conteudo', load_modulo('usuarios','gerenciar_ativo'));
-		load_template();
-	}
-	public function gerenciar_inativo()	
-	{
-		esta_logado();
-		set_tema('titulo','Usuarios do sistema');
-		set_tema('conteudo', load_modulo('usuarios','gerenciar_inativo'));
-		load_template();
-	}
+	
 	public function alterar_senha()
 	{
-		esta_logado();
+		
 		$this->form_validation->set_message('matches','O campo %s está diferente do campo %s.');
 		$this->form_validation->set_rules('senha','SENHA','trim|required|min_length[4]|strtolower');
 		$this->form_validation->set_rules('senha2','REPITA A SENHA','trim|required|min_length[4]|strtolower|matches[senha]');
+		$this->form_validation->set_rules('cpf','CPF','trim|required');
 		if ($this->form_validation->run()==TRUE) {
-			$dados['senha'] = md5($this->input->post('senha'));
-			$this->usuarios->do_update($dados,array('id'=>$this->input->post('idusuario')));
+			$cpf = $this->input->post('cpf');
+			$dados['senha'] = bcrypt($this->input->post('senha'));
+			if ($this->usuarios->get_bycpf($cpf)!=FALSE) {
+				$user_id = $this->usuarios->get_bycpf($cpf)->row()->user_id;
+				if($this->usuarios->do_update($dados,array('id'=>$this->$user_id))==TRUE){
+					set_msg('msgok','Nova senha cadastrada com sucesso.','sucesso');
+					redirect(current_url());
+				}else{
+					set_msg('msgerro','Ops! Não foi possivel salvar a nova senha, verifique e tente mais tarde.','erro');
+					redirect(current_url());
+				}				
+			}else{
+				set_msg('msgerro','O cpf'.$cpf.' não está cadastrado.','erro');
+				redirect(current_url());
+			}			
 		}
-		set_tema('titulo','Usuarios do sistema');
+		set_tema('titulo','Cadastrar senha');
 		set_tema('conteudo', load_modulo('usuarios','alterar_senha'));
 		load_template();
 	}
