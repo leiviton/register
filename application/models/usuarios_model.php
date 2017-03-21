@@ -148,7 +148,7 @@ class Usuarios_model extends CI_Model
 	}
 	public function verifica_chave($chave='')
 	{
-		$this->db->where('TIMESTAMPDIFF(MINUTE,data, now()) <= 120');
+		$this->db->where('TIMESTAMPDIFF(MINUTE,data_hora, now()) <= 30');
 		$consulta = $this->db->get_where('token_validator', array('chave'=>$chave));
 		if ($consulta->num_rows()==1) {
 			return TRUE;
