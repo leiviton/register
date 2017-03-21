@@ -54,18 +54,19 @@ switch ($tela) {
                   <h4 class="card-title">Primeiro Acesso</h4>
                 </div>
                 <div class="card-content">
-                  <div class="col-md-4"></div>
+                  <div class="col-md-1"></div>
                  <div class="input-group" style="">                  
                   <span class="input-group-addon">
                       <i class="material-icons">face</i>
                   </span>
                   <div class="form-group label-floating is-empty">                    
                     <label class="control-label">Seu CPF</label>
-                    <div class="col-md-8">
+                    <div class="col-md-10">
                       <input type="text" class="form-control" name="cpf" required="true">
                     </div>
                   </div>
                   </div>
+                  <div class="col-md-1"></div>
                   <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
                       <input type="submit" class="btn btn-info" name="enviar" value="Solicitar">                    
