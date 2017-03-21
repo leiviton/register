@@ -101,13 +101,14 @@ switch ($tela) {
                     <h4 class="card-title">Cadastrar email</h4>
                   </div>
                   <div class="card-content">
+                    <div class="col-md-3"></div>
                     <div class="input-group">
                       <span class="input-group-addon">
                           <i class="material-icons">face</i>
                       </span>
                       <div class="form-group label-floating is-empty">
-                        <label class="col-md-4 control-label">Seu CPF</label>
-                        <div class="col-md-6">
+                        <label class="control-label">Seu CPF</label>
+                        <div class="col-md-8">
                           <input type="text" class="form-control" name="cpf" placeholder="Digite seu CPF" required="true">
                         </div>
                       </div>
@@ -118,8 +119,8 @@ switch ($tela) {
                         <i class="material-icons">email</i>
                       </span>
                       <div class="form-group label-floating is-empty">
-                        <label class="col-md-4 control-label">Seu Email</label>
-                        <div class="col-md-6">
+                        <label class="control-label">Seu Email</label>
+                        <div class="col-md-8">
                           <input type="text" class="form-control" name="email" placeholder="Digite seu email" required="true">
                         </div>
                       </div>
@@ -128,7 +129,7 @@ switch ($tela) {
                     <div class="form-group">
                       <div class="col-md-6 col-md-offset-4">
                         <input type="submit" class="btn btn-info" name="enviar" value="Cadastrar">                   
-                        <a class="btn btn-danger btn-simple" href="#">voltar ao login</a>
+                        <a class="btn btn-danger btn-simple" href="https://direta.net.br/app/public/">voltar ao login</a>
                       </div>
                     </div>
                   </div>
@@ -157,17 +158,19 @@ switch ($tela) {
               ?>
               <div class="card card-login">
                   <div class="card-header text-center" data-background-color="blue">
-                    <h4 class="card-title">Cadastrar email</h4>
+                    <h4 class="card-title">Cadastrar nova senha</h4>
                   </div>
                   <div class="card-content">
+                    <div class="col-md-"></div>
                     <div class="input-group">
                       <span class="input-group-addon">
                           <i class="material-icons">face</i>
                       </span>
-                      <div class="form-group label-floating is-empty">
-                        <label class="col-md-4 control-label">Seu CPF</label>
-                        <div class="col-md-6">
-                          <input type="text" class="form-control" name="cpf" placeholder="Digite seu CPF" required="true">
+                      <div class="form-group label-floating is-empty">                    
+                        <label class="control-label">Seu CPF</label>
+                        <div class="col-md-8">
+                          <input type="text" class="form-control" name="cpf" required="true">
+                          <span class="material-input"></span>
                         </div>
                       </div>
                     </div>
@@ -177,9 +180,11 @@ switch ($tela) {
                             <i class="material-icons">lock_outline</i>
                         </span>
                     <div class="form-group label-floating is-empty">
-                      <label class="control-label">Password</label>
-                      <input type="password" class="form-control" name="senha" required="true">
-                      <span class="material-input"></span>
+                      <label class="control-label">Digite sua nova senha</label>
+                        <div class="col-md-8">
+                        <input type="password" class="form-control" name="senha" required="true">
+                        <span class="material-input"></span>
+                      </div>
                     </div>
                   </div>
                   <div class="clearfix"></div>
@@ -188,16 +193,18 @@ switch ($tela) {
                             <i class="material-icons">lock_outline</i>
                         </span>
                     <div class="form-group label-floating is-empty">
-                      <label class="control-label">Password</label>
-                      <input type="password" class="form-control" name="senha2" required="true">
-                      <span class="material-input"></span>
+                      <label class="control-label">Repita a senha</label>
+                      <div class="col-md-8">
+                        <input type="password" class="form-control" name="senha2" required="true">
+                        <span class="material-input"></span>
+                      </div>
                     </div>
                   </div>
                     <div class="clearfix"></div>
                     <div class="form-group">
                       <div class="col-md-6 col-md-offset-4">
                         <input type="submit" class="btn btn-info" name="enviar" value="Cadastrar">                   
-                        <a class="btn btn-danger btn-simple" href="#">voltar ao login</a>
+                        <a class="btn btn-danger btn-simple" href="https://direta.net.br/app/public">ir para o login</a>
                       </div>
                     </div>
                   </div>
