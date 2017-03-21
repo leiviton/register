@@ -86,9 +86,12 @@ class Usuarios extends CI_Controller {
 						$link = '<a href="'.base_url("usuarios/verificacao/$chave").'">'.base_url("usuarios/verificacao/$chave").'</a>';
 						$mensagem = '<p> Bem vindo ao sistema de Direta Telecom, clique no link abaixo para confirmar seu cadastro: <br /><br />'.$link.'<br /><br /><br /><hr>Caso você não solicitou, desconsidere este email.</p>';
 						if($this->sistema->enviar_email($cliente->EMAIL,'Bem Vindo ao sistema Direta Telecom',$mensagem)){
+
 							set_msg('msgok','Siga as instruções enviadas no email '.$cliente->EMAIL.'!!','sucesso');
+							redirect(redirect(current_url());
 						}else {
 							set_msg('msgerro','O email:'.$email.' não está cadastrado.','erro');
+							redirect(redirect(current_url());
 						} 
 					}
 				}else{
@@ -123,8 +126,10 @@ class Usuarios extends CI_Controller {
 						$mensagem = '<p> Bem vindo ao sistema Direta Telecom, clique no link abaixo para confirmar seu cadastro: <br /><br />'.$link.'<br /><br /><br /><hr>Caso você não solicitou, desconsidere este email.</p>';
 						if($this->sistema->enviar_email($email,'Confirmação de email',$mensagem)){
 							set_msg('msgok','Siga as instruções enviadas no email '.$email.'!!','sucesso');
+							redirect(redirect(current_url());
 						}else {
 							set_msg('msgerro','O email:'.$email.' não está cadastrado.','erro');
+							redirect(redirect(current_url());
 						} 
 					}
 
