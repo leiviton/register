@@ -107,11 +107,12 @@ switch ($tela) {
                       <div class="form-group label-floating is-empty col-md-8">
                         <label class="control-label">Seu CPF</label>
                        
-                          <input type="text" class="form-control" name="cpf" placeholder="Digite seu CPF" required="true">
+                          <input type="text" class="form-control" name="cpf"  required="true">
                        
                       </div>
                     </div>
                     <div class="clearfix"></div>
+                    <div class="col-md-3"></div>
                     <div class="input-group">
                       <span class="input-group-addon">
                         <i class="material-icons">email</i>
@@ -119,7 +120,7 @@ switch ($tela) {
                       <div class="form-group label-floating is-empty col-md-8">
                         <label class="control-label">Seu Email</label>
                        
-                          <input type="text" class="form-control" name="email" placeholder="Digite seu email" required="true">
+                          <input type="text" class="form-control" name="email" required="true">
                  
                       </div>
                     </div>
