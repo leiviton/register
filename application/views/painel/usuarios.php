@@ -55,12 +55,12 @@ switch ($tela) {
                 </div>
                 <div class="card-content">
                  <div class="input-group">
-                  <div class="col-md-2"></div>
+                  <div class="col-md-4"></div>
                   <span class="input-group-addon">
                       <i class="material-icons">face</i>
                   </span>
                   <div class="form-group label-floating is-empty">
-                    <div class="col-md-2"></div>
+                    
                     <label class="col-md-4 control-label">Seu CPF</label>
                     <div class="col-md-6">
                       <input type="text" class="form-control" name="cpf" required="true">
