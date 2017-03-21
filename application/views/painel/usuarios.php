@@ -54,6 +54,7 @@ switch ($tela) {
                   <h4 class="card-title">Primeiro Acesso</h4>
                 </div>
                 <div class="card-content">
+                 <div class="input-group">
                   <span class="input-group-addon">
                       <i class="material-icons">face</i>
                   </span>
@@ -62,6 +63,7 @@ switch ($tela) {
                     <div class="col-md-6">
                       <input type="text" class="form-control" name="cpf" placeholder="Digite seu CPF" required="true">
                     </div>
+                  </div>
                   </div>
                   <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
@@ -98,23 +100,27 @@ switch ($tela) {
                     <h4 class="card-title">Cadastrar email</h4>
                   </div>
                   <div class="card-content">
-                    <span class="input-group-addon">
-                        <i class="material-icons">face</i>
-                    </span>
-                    <div class="form-group label-floating is-empty">
-                      <label class="col-md-4 control-label">Seu CPF</label>
-                      <div class="col-md-6">
-                        <input type="text" class="form-control" name="cpf" placeholder="Digite seu CPF" required="true">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                          <i class="material-icons">face</i>
+                      </span>
+                      <div class="form-group label-floating is-empty">
+                        <label class="col-md-4 control-label">Seu CPF</label>
+                        <div class="col-md-6">
+                          <input type="text" class="form-control" name="cpf" placeholder="Digite seu CPF" required="true">
+                        </div>
                       </div>
                     </div>
                     <div class="clearfix"></div>
-                    <span class="input-group-addon">
-                      <i class="material-icons">email</i>
-                    </span>
-                    <div class="form-group label-floating is-empty">
-                      <label class="col-md-4 control-label">Seu Email</label>
-                      <div class="col-md-6">
-                        <input type="text" class="form-control" name="email" placeholder="Digite seu email" required="true">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="material-icons">email</i>
+                      </span>
+                      <div class="form-group label-floating is-empty">
+                        <label class="col-md-4 control-label">Seu Email</label>
+                        <div class="col-md-6">
+                          <input type="text" class="form-control" name="email" placeholder="Digite seu email" required="true">
+                        </div>
                       </div>
                     </div>
                     <div class="clearfix"></div>
