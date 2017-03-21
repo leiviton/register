@@ -79,7 +79,7 @@ class Usuarios extends CI_Controller {
 			if($this->usuarios->get_bycpf($cpf)!=FALSE){
 				$usuario = $this->usuarios->get_bycpf($cpf)->result();
 				$cliente = $usuario[0];
-				if($cliente->EMAIL_1 != null){
+				if($cliente->EMAIL != null){
 					$chave = md5(uniqid(rand(), true));	
 					if ($this->usuarios->grava_chave($chave,$cliente->EMAIL)) {				
 		

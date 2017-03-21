@@ -124,14 +124,11 @@ switch ($tela) {
       <div class="content" style="margin-top: 80px">
         <div class="container">
           <div class="row">
+            <div class="col-md-8 col-md-offset-2">       
             <?php
               erros_validacao();
               get_msg('msgerro');
-              get_msg('msgok');
-              ?>
-            <div class="col-md-8 col-md-offset-2">       
-            <?php
-                      
+              get_msg('msgok');         
               echo form_open('usuarios/cadastrar_email',array('class'=>'custom formlogin'));
               ?>
               <div class="card card-login">
