@@ -55,6 +55,7 @@ switch ($tela) {
                 </div>
                 <div class="card-content">
                  <div class="input-group">
+                  <div class="col-md-2"></div>
                   <span class="input-group-addon">
                       <i class="material-icons">face</i>
                   </span>
