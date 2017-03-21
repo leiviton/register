@@ -95,7 +95,7 @@ switch ($tela) {
                 <div class="card-content">    
                   <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">                                       
-                      <a class="btn btn-success btn-lg" href="https://direta.net.br/app/public">Ir para o login</a>
+                      <a class="btn btn-success btn-simple text-center" href="https://direta.net.br/app/public">Ir para o login</a>
                     </div>
                   </div>
                 </div>
