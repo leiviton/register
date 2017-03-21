@@ -61,7 +61,7 @@ switch ($tela) {
                   </span>
                   <div class="form-group label-floating is-empty">                    
                     <label class="control-label">Seu CPF</label>
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                       <input type="text" class="form-control" name="cpf" required="true">
                     </div>
                   </div>
