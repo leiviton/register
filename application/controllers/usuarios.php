@@ -81,7 +81,7 @@ class Usuarios extends CI_Controller {
 				$cliente = $usuario[0];
 				if($cliente->EMAIL != null){
 					$chave = md5(uniqid(rand(), true));	
-					if ($this->usuarios->grava_chave($chave,$cliente->EMAIL,$cliente->CPF)) {	
+					if ($this->usuarios->grava_chave($chave,$cliente->EMAIL,$cpf)) {	
 		
 						$link = '<a href="'.base_url("usuarios/verificacao/$chave").'">'.base_url("usuarios/verificacao/$chave").'</a>';
 						$mensagem = '<p> Bem vindo ao sistema de Direta Telecom, sua senha para o primeiro acesso é "123456", após acesso trocar sua senha para sua segurança,clique no link abaixo para confirmar seu cadastro: <br /><br />'.$link.'<br /><br /><br /><hr>Caso você não solicitou, desconsidere este email.</p>';
