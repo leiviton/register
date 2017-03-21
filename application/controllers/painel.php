@@ -19,7 +19,7 @@ class Painel extends CI_Controller {
 			set_tema('conteudo',load_modulo('home','conteudo'));
 			load_template();
 		} else {
-			redirect('usuarios/login');
+			redirect('usuarios/VerifyCadastro');
 		}		
 	}
 }
