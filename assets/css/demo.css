@@ -12,8 +12,18 @@
         position: absolute;
     }
 }
+
+@media (max-width: 360px){
+    .login-set{
+        top: -50px;
+    }
+}
 .pesquisa{
     margin-left: -100px !important;
+}
+
+.form-reset{
+    top:100px;
 }
 #category{
     margin-left: 15px;

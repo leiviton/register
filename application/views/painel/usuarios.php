@@ -8,10 +8,10 @@ switch ($tela) {
     ?>
        <div class="full-page" data-image='../../assets/img/login.jpeg'>
     <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
-    <div class="content" style="margin-top: 80px">
+    <div class="content">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 col-md-offset-2">       
+          <div class="col-md-8 col-md-offset-2 form-reset">       
           <?php
             erros_validacao();
             get_msg('msgerro');
@@ -39,10 +39,10 @@ switch ($tela) {
     ?>
     <div class="full-page" data-image='../../assets/img/login.jpeg'>
     <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
-    <div class="content" style="margin-top: 80px">
+    <div class="content">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 col-md-offset-2">       
+          <div class="col-md-8 col-md-offset-2 form-reset">       
           <?php
             erros_validacao();
             get_msg('msgerro');
@@ -84,10 +84,10 @@ switch ($tela) {
     ?>
      <div class="full-page" data-image='../../assets/img/login.jpeg'>
       <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
-      <div class="content" style="margin-top: 80px">
+      <div class="content">
         <div class="container">
           <div class="row">
-            <div class="col-md-8 col-md-offset-2">       
+            <div class="col-md-8 col-md-offset-2 form-reset">       
             <?php
               erros_validacao();
               get_msg('msgerro');
